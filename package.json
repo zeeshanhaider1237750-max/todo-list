@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack serve --open --mode development",
     "build": "webpack --mode production",
-    "deploy": "gh-pages -d dist",
+    "deploy": "npm run build && gh-pages -d dist",
     "lint": "eslint src/**/*.js",
     "format": "prettier --write src/**/*"
   },

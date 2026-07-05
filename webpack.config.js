@@ -25,15 +25,20 @@ const config = {
       template: './src/index.html',
       filename: 'index.html',
     }),
-    new MiniCssExtractPlugin({
-      filename: 'style.css',
-    }),
+    // REMOVED MiniCssExtractPlugin from here to prevent duplicate instances
   ],
   module: {
     rules: [
       {
         test: /\.css$/i,
         use: [MiniCssExtractPlugin.loader, 'css-loader'],
+      },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: 'asset/resource',
+        generator: {
+          filename: 'assets/[name][ext]',
+        },
       },
     ],
   },
@@ -45,6 +50,7 @@ const config = {
   },
 };
 
+// Safely wrap configuration and push the extraction plugin completely un-wrapped
 const wrappedConfig = smp.wrap(config);
 wrappedConfig.plugins.push(new MiniCssExtractPlugin({ filename: 'style.css' }));
 
