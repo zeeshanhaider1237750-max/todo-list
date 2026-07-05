@@ -3,59 +3,55 @@
 <hr>
 
 <h2>Overview</h2>
-<p>This Site allows users to Gather, Rearrange, and Enlist their <br> Todo List with different functionalities available for the users.</p>
+<p>This site allows users to gather, rearrange, and enlist their todo lists with different functionalities available for the users.</p>
 
 <hr>
 
 <h2>Usage</h2>
-<p>A user can add, remove, rearrange their todo list items. <br>
-In each todo list, they can set it's pirority and by default <br> pirority is set to 50% to each new or default project.
-Users can even take notes and mark important things in checklist. <br>
-They also can set the details of a todo list in Description while enlisting important <br> tasks in Checklist or take something in Notes section.</p>
+<p>A user can add, remove, rearrange their todo list items.</p>
+<p>In each todo list, they can set its priority. By default, priority is set to 50% for each new or default project.</p>
+<p>Users can even take notes and mark important things in a checklist.</p>
+<p>They can also set the details of a todo list in Description while enlisting important tasks in the Checklist, or take notes in the Notes section.</p>
 
 <hr>
 
 <h2>Features</h2>
-<p>
-* Creates Multiple custom todo folders(One to many Architecture). <br>
-* Add, Edit and delete task items with Titles, Descriptions, Due-date, Pirority, Notes and Checklist. <br>
-* Automatically saves your projects and tasks to browser using localStorage.
-* Complete decoupling of underlying logical data arrays from DOM Manipulation.
-</p>
+<ul>
+  <li>Creates multiple custom todo folders (One-to-Many Architecture).</li>
+  <li>Add, edit, and delete task items with Titles, Descriptions, Due dates, Priorities, Notes, and Checklists.</li>
+  <li>Automatically saves your projects and tasks to the browser using localStorage.</li>
+  <li>Complete decoupling of underlying logical data arrays from DOM Manipulation.</li>
+</ul>
 
 <hr>
 
 <h2>Tech Stacks</h2>
-<p>
-* Windows Subsystem for Linux Ubuntu(WSL2).
-* Javascript (ES6 Modules).
-* CSS3
-* Node Package Manager(npm), webpack5.
-</p>
+<ul>
+  <li>Windows Subsystem for Linux Ubuntu (WSL2).</li>
+  <li>JavaScript (ES6 Modules).</li>
+  <li>CSS3.</li>
+  <li>Node Package Manager (npm) & Webpack 5.</li>
+</ul>
 
 <hr>
 
 <h2>Installation Process</h2>
-<p>
-* Clone The repository 
- ```git clone <repository-name>
- ```
-* Install Webpack5, development server and required loaders which will be downloaded from package.json.
- ``` npm install
- ```
-* Run the local Development Server
-  ``` npm run start
-  ```
-*Build for production(that Minifies JS Bundlers in /dist).
- ``` npm run build
- ```
-</p>
+<p>Clone the repository:</p>
+<pre><code>git clone https://github.com</code></pre>
+
+<p>Install Webpack 5, development server, and required loaders which will be downloaded from package.json:</p>
+<pre><code>npm install</code></pre>
+
+<p>Run the local Development Server:</p>
+<pre><code>npm run start</code></pre>
+
+<p>Build for production (that minifies JS bundlers in /dist):</p>
+<pre><code>npm run build</code></pre>
 
 <hr>
 
 <h2>Project Structure</h2>
-<p>
-```text
+<pre><code>.
 ├── dist/                          # Production assets (Automated by Webpack)
 │   ├── index.html                 # Main entry template with bundle auto-injected
 │   ├── main.js                    # Compiled application logic bundle
@@ -83,29 +79,25 @@ They also can set the details of a todo list in Description while enlisting impo
 ├── package-lock.json              # Auto-locked structural package dependency tree
 ├── package.json                   # Build scripts, version variables, and manifests
 ├── webpack.config.js              # Compilation rules for loaders and asset bundlers
-└── README.md                      # Platform architecture documentation
-```
-
-</p>
+└── README.md                      # Platform architecture documentation</code></pre>
 
 <hr>
 
 <h2>Author/Contact</h2>
-<p>
-* Author: Zeeshan Haider
-* Email-Address: ZeeshanHaider.1237750@gmail.com.
-</p>
+<ul>
+  <li><b>Author:</b> Zeeshan Haider</li>
+  <li><b>Email Address:</b> ZeeshanHaider.1237750@gmail.com</li>
+</ul>
 
 <hr>
 
 <h2>License & Copyrights</h2>
-<p>
-+ Copyrights &copy; 2026 Zeeshan Haider 
+<p>Copyright &copy; 2026 Zeeshan Haider</p>
+<p>This project is open-source and licensed under the <b>MIT License</b>.</p>
 
-This Project is opened-source and licensed under the MIT License.
-
-What this means for you:
-* You are 100% allowed to fork this repository.
-* You are 100% allowed to download and run this project locally on your computer.
-* You can use the code structure to help guide you your own learning journey.
-</p>
+<p><b>What this means for you:</b></p>
+<ul>
+  <li>You are 100% allowed to fork this repository.</li>
+  <li>You are 100% allowed to download and run this project locally on your computer.</li>
+  <li>You can use the code structure to help guide your own learning journey.</li>
+</ul>
