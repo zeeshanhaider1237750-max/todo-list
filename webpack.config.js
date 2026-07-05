@@ -45,4 +45,7 @@ const config = {
   },
 };
 
-module.exports = smp.wrap(config);
+const wrappedConfig = smp.wrap(config);
+wrappedConfig.plugins.push(new MiniCssExtractPlugin({ filename: 'style.css' }));
+
+module.exports = wrappedConfig;
