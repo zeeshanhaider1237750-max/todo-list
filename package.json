@@ -2,9 +2,13 @@
   "name": "todo-list",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "webpack serve --open --mode development",
+    "build": "webpack --mode production",
+    "deploy": "gh-pages -d dist",
+    "lint": "eslint src/**/*.js",
+    "format": "prettier --write src/**/*"
   },
   "repository": {
     "type": "git",
@@ -12,10 +16,33 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "type": "commonjs",
   "bugs": {
     "url": "https://github.com/zeeshanhaider1237750-max/todo-list/issues"
   },
-  "homepage": "https://github.com/zeeshanhaider1237750-max/todo-list#readme"
+  "homepage": "https://github.com/zeeshanhaider1237750-max/todo-list#readme",
+  "dependencies": {
+    "canvas-confetti": "^1.9.3",
+    "date-fns": "^4.1.0",
+    "lodash": "^4.17.21",
+    "randomcolor": "^0.6.2",
+    "sortablejs": "^1.15.7",
+    "uuid": "^11.1.1"
+  },
+  "devDependencies": {
+    "css-loader": "^7.1.2",
+    "css-minimizer-webpack-plugin": "^7.0.0",
+    "eslint": "^9.18.0",
+    "gh-pages": "^6.3.0",
+    "html-webpack-plugin": "^5.6.3",
+    "mini-css-extract-plugin": "^2.9.2",
+    "prettier": "^3.4.2",
+    "speed-measure-webpack-plugin": "^1.5.0",
+    "style-loader": "^4.0.0",
+    "terser-webpack-plugin": "^5.3.11",
+    "webpack": "^5.97.1",
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.2.0"
+  }
 }
