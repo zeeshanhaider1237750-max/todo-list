@@ -25,7 +25,7 @@ const config = {
       template: './src/index.html',
       filename: 'index.html',
     }),
-    // REMOVED MiniCssExtractPlugin from here to prevent duplicate instances
+
   ],
   module: {
     rules: [
@@ -50,7 +50,6 @@ const config = {
   },
 };
 
-// Safely wrap configuration and push the extraction plugin completely un-wrapped
 const wrappedConfig = smp.wrap(config);
 wrappedConfig.plugins.push(new MiniCssExtractPlugin({ filename: 'style.css' }));
 
