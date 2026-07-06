@@ -58,8 +58,6 @@
 │   └── style.css                  # Extracted and minified CSS for ALL pages
 ├── src/                           # Active developer source directory
 │   ├── pages/                     # Separated page style structures from design sketches
-│   │   ├── main_page/
-│   │   │   └── main.css           # Left sidebar & structural layout styling
 │   │   ├── home_page/
 │   │   │   └── home.css           # Greeting interface hero styles
 │   │   ├── project_page/
