@@ -3,10 +3,12 @@ name: Automated GitHub Pages Deployment
 on:
   push:
     branches:
-      - main # Triggers the action every time you push code to your main branch
+      - main
 
 permissions:
-  contents: write # Gives the script permission to write your dist folder to your gh-pages branch
+  contents: write
+  pages: write
+  id-token: write
 
 jobs:
   build-and-deploy:
@@ -27,8 +29,10 @@ jobs:
       - name: Compile Production Webpack Bundle
         run: npm run build
 
-      - name: Deploy Live Assets to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
+      - name: Upload Compiled Distribution Artifacts
+        uses: actions/upload-pages-artifact@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+          path: ./dist
+
+      - name: Deploy Live Assets to GitHub Pages
+        uses: actions/deploy-pages@v4
