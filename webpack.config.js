@@ -8,7 +8,7 @@ const SpeedMeasurePlugin = require('speed-measure-webpack-plugin');
 const smp = new SpeedMeasurePlugin();
 
 const config = {
-  entry: './src/index.js',
+  entry: './src/script.js',
   output: {
     filename: 'main.js',
     path: path.resolve(__dirname, 'dist'),
