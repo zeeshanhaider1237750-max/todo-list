@@ -24,7 +24,7 @@ jobs:
           cache: 'npm'
 
       - name: Install Project Tooling Dependencies
-        run: npm install
+        run: npm install --legacy-peer-deps
 
       - name: Compile Production Webpack Bundle
         run: npm run build
