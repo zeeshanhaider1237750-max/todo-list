@@ -1,0 +1,16 @@
+.contributeContainer {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  padding: 10vh 10vw;
+  gap: 5vh;
+  height: 100%;
+  color: white;
+}
+.contributeHead {
+  font-size: 5rem;
+}
+.contributeBody {
+  font-size: 3rem;
+}

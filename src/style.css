@@ -4,12 +4,19 @@
   padding: 0;
   font-family: Arial, Helvetica, sans-serif;
 }
+html,
 body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  min-height: 100vh;
+}
+#body {
   display: grid;
-  grid-template-columns: 25% 75%;
-  height: 100vh;
-  width: 100vw;
-
+  grid-template-columns: 20vw 1fr;
+  min-height: 100vh;
+  margin: 0;
+  align-items: start;
 }
 #left-bar {
   display: flex;
@@ -22,6 +29,11 @@ body {
   color: white;
   padding: 1.3vh 1vw;
   flex-shrink: 0;
+  min-height: 100%;
+  box-sizing: border-box;
+  background-attachment: fixed;
+  height: auto;
+  align-self: stretch;
 }
 #about {
   font-size: 2.5vw;
@@ -54,46 +66,50 @@ body {
   flex-wrap: nowrap;
   width: 100%;
   justify-content: flex-end;
+  height: auto;
 }
-button{
-    border: 1px solid black;
-    font-size: 1.5vw;
-    border-radius: 0.7vw;
-    padding: 0.3vw 0.6vw;
-    white-space: nowrap;
-    min-width: 10vw;
-    cursor: pointer;
+button {
+  border: 1px solid black;
+  font-size: 1.5vw;
+  border-radius: 0.7vw;
+  padding: 0.3vw 0.6vw;
+  white-space: nowrap;
+  min-width: 10vw;
+  cursor: pointer;
 }
-#nav{
-    gap: 10vw;
+#nav {
+  gap: 10vw;
 }
-#footer{
- display: flex;
- align-items: center;
- justify-content: center;
- background-image: url("./assets/images/sea-view.jpg");
- background-size: cover;
- background-position: center;
- background-repeat: no-repeat;
- text-align: center;
- color: white;
- flex-shrink: 0;
- flex-wrap: nowrap;
+#footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url("./assets/images/sea-view.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  text-align: center;
+  color: white;
+  flex-shrink: 0;
+  flex-wrap: nowrap;
+  margin: 0;
+  padding: 4vh 0vw;
+  height: auto;
 }
-#f-content{
- align-items: center;
- text-align: center;
- white-space: nowrap;
- font-size: 2vw;
+#f-content {
+  align-items: center;
+  text-align: center;
+  white-space: nowrap;
+  font-size: 2vw;
 }
-button:hover{
+button:hover {
   transform: translateY(-4px);
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
   transition: 0.4s;
   color: #ffffff;
   background-color: #2c3e50;
 }
-#icon{
+#icon {
   display: flex;
   flex-direction: row;
   gap: 1vw;
@@ -101,7 +117,7 @@ button:hover{
   justify-content: flex-start;
   margin-bottom: 1.5rem;
 }
-#aboutIcon{
+#aboutIcon {
   filter: invert(1);
   max-width: 2vw;
   max-height: 2vh;
