@@ -7,6 +7,10 @@
   padding: 4vw 4vh;
   height: 100%;
   color: white;
+  background-image: url('../../assets/images/red-design.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 .homeHead {
   display: flex;

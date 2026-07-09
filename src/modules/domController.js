@@ -1,8 +1,7 @@
-import '../pages/home_page/home.css';
-import '../pages/contribute_page/contribute.css';
+import "../pages/home_page/home.css";
+import "../pages/contribute_page/contribute.css";
 
 export const homeBox = () => {
-
   const homeContainer = document.createElement("div");
   homeContainer.className = "homeContainer";
 
@@ -25,7 +24,7 @@ export const homeBox = () => {
 
   const headText = document.createElement("div");
   homeHead.appendChild(headText);
-  headText.className = "headText"
+  headText.className = "headText";
   headText.innerHTML =
     "This Site allows you to enlist your Todo, recycle and reuse them. I means, make your time easy by mapping out, what you have to do. <br> Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum quo tenetur, ad dicta voluptates minus cum vel rem libero! Sed tenetur molestiae ad repellat nam iste in sit beatae recusandae?";
 
@@ -44,18 +43,19 @@ export const homeBox = () => {
   return homeContainer;
 };
 export const contributeBox = () => {
-  const contributeContainer = document.createElement('div');
+  const contributeContainer = document.createElement("div");
   contributeContainer.className = "contributeContainer";
-  
-  const contributeHead = document.createElement('div');
+
+  const contributeHead = document.createElement("div");
   contributeContainer.appendChild(contributeHead);
   contributeHead.innerHTML = "NO CONTRIBUTION's NEEDED";
   contributeHead.className = "contributeHead";
 
-  const contributeBody = document.createElement('div');
+  const contributeBody = document.createElement("div");
   contributeContainer.appendChild(contributeBody);
   contributeBody.className = "contributeBody";
-  contributeBody.innerHTML = "I am Glad that my Site allowed you to save yourself some time!";
+  contributeBody.innerHTML =
+    "I am Glad that my Site allowed you to save yourself some time!";
 
-  return  contributeContainer;
-}
+  return contributeContainer;
+};
