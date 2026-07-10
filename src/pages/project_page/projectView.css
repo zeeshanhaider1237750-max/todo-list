@@ -3,17 +3,23 @@
   flex-direction: column;
   height: auto;
   min-height: 100%;
-  border: 2.5px solid black;
+  border: 0.8vh solid black;
+  background-color: white;
 }
 .projectHead {
-  border-bottom: 2.5px solid black;
+  border-bottom: 0.8vh solid black;
   padding: 1.2vh 1vw;
 }
 .headText {
   font-size: 1.8rem;
+  cursor: pointer;
+  user-select: none;         
+  -webkit-user-select: none; 
+  -moz-user-select: none;   
+  -ms-user-select: none;  
 }
 .header {
-  border-bottom: 2.5px solid black;
+  border-bottom: 0.8vh solid black;
   padding: 1.2vh 1vw;
   display: flex;
   flex-direction: row;
@@ -22,23 +28,105 @@
 }
 .butn {
   font-size: 1.1rem;
-  border-radius: 12px;
-  width: 9vw;
-  height: 5vh;
-  padding: 0;
+  border-radius: 1vh;
+  min-width: 9vw;
+  min-height: 5vh;
+  padding: 1vw 1vh;
+  height: auto;
+  width: auto;
 }
-butn:hover {
+.butn:hover {
   transform: translateY(-4px);
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
   transition: 0.3s;
   color: #ffffff;
   background-color: chocolate;
+  cursor: pointer;
+  user-select: none;         
+  -webkit-user-select: none; 
+  -moz-user-select: none;   
+  -ms-user-select: none;  
 }
 .butn::after {
   content: attr(data-hover-text);
 }
 .butn:hover::after {
   content: "+";
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   font-weight: bold;
+}
+.todoRow{
+  display: flex;
+  flex-direction: row;
+  border-bottom: 0.5vh solid black;
+  height: auto;
+  min-height: 5vh;
+  align-items: center;
+}
+.serial{
+  padding: 0.6vh 0.6rem;
+  font-size: 1.4rem;
+  align-items: center;
+  height: 100%;
+  width: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: none;
+  user-select: none;
+}
+.arrow{
+  align-items: center;
+  padding: 0.6vh 0.6rem;
+  font-size: 1.4rem;
+  border-right: 0.5vh solid black;
+  width: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-left: 0.5vh solid black;
+  height: 100%;
+  cursor: none;
+  user-select: none;
+}
+.inputName{
+  align-items: center;
+  margin: auto 2.5vw;
+  min-width: 40vw;
+  width: auto;
+  padding: 0.5vh 0.5vw;
+  text-align: center;
+  color: black;
+  font-size: 1.2rem;
+}
+.checkBox{
+  background-color: white;
+  border-radius: 0%;
+  border: 0.3rem solid black;
+  width: 1.5vw;
+  height: 3.5vh;
+  align-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1vh 1rem;
+  cursor: pointer;
+  font-size: 1.1rem;
+  user-select: none;
+}
+.removeButton{
+  margin-left: 1.8rem;
+  font-size: 1.1rem;
+  text-align: center;
+  min-width: 15vw;
+  margin: 0.5vh 0.8rem;
+  height: 3vh;
+  align-items: center;
+  border: 0.2rem solid black;
+  justify-content: center;
+  display: flex;
+  background-color: red;
+  color: white;
+  cursor: pointer;
+  user-select: none;
 }
