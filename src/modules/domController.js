@@ -26,7 +26,7 @@ export const homeBox = () => {
   homeHead.appendChild(headText);
   headText.className = "headText";
   headText.innerHTML =
-    "This Site allows you to enlist your Todo, recycle and reuse them. I means, make your time easy by mapping out, what you have to do. <br> Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum quo tenetur, ad dicta voluptates minus cum vel rem libero! Sed tenetur molestiae ad repellat nam iste in sit beatae recusandae?";
+    "This Site allows you to enlist your Todo, recycle and reuse them. I mean, make your time easy by mapping out, what you have to do. <br> Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum quo tenetur, ad dicta voluptates minus cum vel rem libero! Sed tenetur molestiae ad repellat nam iste in sit beatae recusandae?";
 
   const bodyText = document.createElement("div");
   homeBody.appendChild(bodyText);

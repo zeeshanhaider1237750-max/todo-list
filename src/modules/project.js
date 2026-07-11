@@ -45,7 +45,9 @@ const projectBodyBox = () => {
     let nameInputField = document.createElement("input");
     nameInputField.className = "nameInputField";
 
-    let newTodo = todoFactory(serialNumber, arrowIcon, nameInputField);
+    let newId = Math.floor(Math.random()*12345);
+
+    let newTodo = todoFactory(serialNumber, arrowIcon, nameInputField, newId);
 
     todoListLibrary.push(newTodo);
 
@@ -112,6 +114,18 @@ let todoDom = (todo) => {
   removeButton.className = "removeButton";
   removeButton.textContent = "Remove todo";
 
+  let todoId;
+  todoId = todo.id
+
+  // removeButton.addEventListener('click', () => {
+  //   serial = todoListLibrary.length - 1;
+  //   arrow = "";    
+  //   inputName = "";
+  //   let removeTodo = todoFactory(serial, arrow, inputName);
+  //   todoListLibrary.
+
+  // })
+
   checkBox.addEventListener("click", () => {
     if (checkBox.innerHTML === "" || checkBox.innerHTML === "✖") {
       checkBox.innerHTML = "✔";
@@ -126,7 +140,7 @@ let todoDom = (todo) => {
       return todoRowBody;
     } else if (arrow.innerHTML === ">") {
       arrow.innerHTML = "▶";
-      todoRowBody = "";
+      todoRow.remove(todoRowBody);
       return todoRowBody;
     }
   });
