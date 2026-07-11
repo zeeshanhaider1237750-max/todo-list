@@ -17,7 +17,7 @@ body {
   min-height: 100vh;
   margin: 0;
   align-items: start;
-  background-color: blue;
+  background-color: rgb(0%, 0%, 90%);
 }
 #left-bar {
   display: flex;
@@ -35,10 +35,10 @@ body {
   background-attachment: fixed;
   height: auto;
   align-self: stretch;
-  user-select: none;         
-  -webkit-user-select: none; 
-  -moz-user-select: none;   
-  -ms-user-select: none;  
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
 #about {
   font-size: 2.5vw;
@@ -71,6 +71,7 @@ body {
   width: 100%;
   justify-content: flex-end;
   height: auto;
+  background-color: white;
 }
 button {
   border: 1px solid black;
@@ -80,10 +81,10 @@ button {
   white-space: nowrap;
   min-width: 10vw;
   cursor: pointer;
-  user-select: none;         
-  -webkit-user-select: none; 
-  -moz-user-select: none;   
-  -ms-user-select: none;  
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
 #nav {
   gap: 10vw;
@@ -103,18 +104,19 @@ button {
   margin: 0;
   padding: 4vh 0vw;
   height: auto;
+  background-color: white;
 }
 #f-content {
   align-items: center;
   text-align: center;
   white-space: nowrap;
   font-size: 2vw;
-  user-select: none;         
-  -webkit-user-select: none; 
-  -moz-user-select: none;    
-  -ms-user-select: none;  
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
-#f-content:hover{
+#f-content:hover {
   color: red;
   font-size: 2.3vw;
   transition: 0.2s;
@@ -138,8 +140,11 @@ button:hover {
   filter: invert(1);
   max-width: 2vw;
   max-height: 2vh;
-  user-select: none;         
-  -webkit-user-select: none; 
-  -moz-user-select: none;    
-  -ms-user-select: none;  
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+#center{
+   background-color: white;
 }

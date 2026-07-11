@@ -13,10 +13,10 @@
 .headText {
   font-size: 1.8rem;
   cursor: pointer;
-  user-select: none;         
-  -webkit-user-select: none; 
-  -moz-user-select: none;   
-  -ms-user-select: none;  
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
 .header {
   border-bottom: 0.8vh solid black;
@@ -42,10 +42,10 @@
   color: #ffffff;
   background-color: chocolate;
   cursor: pointer;
-  user-select: none;         
-  -webkit-user-select: none; 
-  -moz-user-select: none;   
-  -ms-user-select: none;  
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
 .butn::after {
   content: attr(data-hover-text);
@@ -55,15 +55,27 @@
   font-size: 1.6rem;
   font-weight: bold;
 }
-.todoRow{
+.todoRow {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  min-height: 5vh;
+  align-items: center;
+  width: 100%;
+}
+.todoRowHead {
   display: flex;
   flex-direction: row;
   border-bottom: 0.5vh solid black;
   height: auto;
   min-height: 5vh;
   align-items: center;
+  width: 100%;
 }
-.serial{
+.todoRowBody{
+  width: 100%;
+}
+.serial {
   padding: 0.6vh 0.6rem;
   font-size: 1.4rem;
   align-items: center;
@@ -72,10 +84,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: none;
   user-select: none;
 }
-.arrow{
+.arrow {
   align-items: center;
   padding: 0.6vh 0.6rem;
   font-size: 1.4rem;
@@ -86,25 +97,25 @@
   justify-content: center;
   border-left: 0.5vh solid black;
   height: 100%;
-  cursor: none;
+  cursor: pointer;
   user-select: none;
 }
-.inputName{
+.inputName {
   align-items: center;
   margin: auto 2.5vw;
-  min-width: 40vw;
+  min-width: 25rem;
   width: auto;
   padding: 0.5vh 0.5vw;
   text-align: center;
   color: black;
   font-size: 1.2rem;
 }
-.checkBox{
+.checkBox {
   background-color: white;
   border-radius: 0%;
-  border: 0.3rem solid black;
-  width: 1.5vw;
-  height: 3.5vh;
+  border: 2px solid black;
+  width: 25px;
+  height: 25px;
   align-items: center;
   display: flex;
   align-items: center;
@@ -114,19 +125,21 @@
   font-size: 1.1rem;
   user-select: none;
 }
-.removeButton{
+.removeButton {
   margin-left: 1.8rem;
   font-size: 1.1rem;
   text-align: center;
   min-width: 15vw;
   margin: 0.5vh 0.8rem;
-  height: 3vh;
+  min-height: 3vh;
+  height: auto;
   align-items: center;
-  border: 0.2rem solid black;
+  border: 2px solid black;
   justify-content: center;
   display: flex;
   background-color: red;
   color: white;
   cursor: pointer;
   user-select: none;
+  word-break: none;
 }
