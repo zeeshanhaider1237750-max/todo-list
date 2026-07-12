@@ -85,7 +85,7 @@
   min-height: 15vh;
   /* width: 72.5vw; */
   width: 100%;
-  text-align: start;
+  text-align: left;
   font-size: 1rem;
   padding: 1rem;
 }
@@ -95,7 +95,7 @@
   min-height: 10vh;
   /* width: 36vw; */
   width: 100%;
-  text-align: start;
+  text-align: left;
   font-size: 1rem;
   padding: 1rem;
 }

@@ -73,7 +73,7 @@ export let todoListFunction = () => {
     descriptionHead.innerHTML = "Description";
     descriptionHead.className = "descriptionHead";
 
-    const descriptionInput = document.createElement('input');
+    const descriptionInput = document.createElement('textarea');
     descriptionBox.appendChild(descriptionInput);
     descriptionInput.className = "descriptionInput";
     
@@ -82,7 +82,7 @@ export let todoListFunction = () => {
     noteHead.className = "noteHead";
     noteHead.innerHTML = "Notes";
 
-    const noteInput = document.createElement('input');
+    const noteInput = document.createElement('textarea');
     noteBox.appendChild(noteInput);
     noteInput.className = "noteInput";
 
@@ -91,7 +91,7 @@ export let todoListFunction = () => {
     checklistHead.className = "checklistHead";
     checklistHead.innerHTML = "Checklists"
 
-    const checklistInput = document.createElement('input');
+    const checklistInput = document.createElement('textarea');
     checklistBox.appendChild(checklistInput);
     checklistInput.className = "checklistInput";
 

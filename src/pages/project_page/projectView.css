@@ -74,6 +74,12 @@
 }
 .todoRowBody{
   width: 100%;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-in-out;
+}
+.todoRowBody.expanded{
+  max-height: auto;
 }
 .serial {
   padding: 0.6vh 0.6rem;
