@@ -1,15 +1,23 @@
 import "../pages/project_page/projectView.css";
 import { todoListFunction } from "../modules/todo.js";
+import  confetti  from "canvas-confetti";
+import  randomColor  from "randomcolor";
+import  Sortable  from "sortablejs";
+import { format } from "date-fns";
 
 let todoListLibrary = [];
 
-let todoFactory = (serialNo, arrow, name, id) => {
-  return { serialNo, arrow, name, id, isComplete: false, isDetailOpen: false };
+let todoFactory = (serialNo=[], arrow=[], name=[], id) => {
+  return { serialNo, arrow, name, id, isComplete: false, isDetailOpen: false, todoTitle: "", todoDueDate: "", todoDescription: "", todoNote:"", todoChecklist:"", color:randomColor()};
 };
 
 let todoDom = (todo, parentContainer) => {
   let todoRow = document.createElement("div");
   todoRow.className = "todoRow";
+  todoRow.style.backgroundColor = todo.color;
+
+  let dateDisplay = document.createElement('div');
+  dateDisplay.className = "dateDisplay";
 
   let todoRowHead = document.createElement("div");
   todoRow.appendChild(todoRowHead);
@@ -40,7 +48,17 @@ let todoDom = (todo, parentContainer) => {
   inputName.addEventListener("input", () => {
     todo.name = inputName.value;
   });
+  
+    if(todo.todoDueDate){
+    let parsedDate = new Date(todo.todoDueDate);
 
+    dateDisplay.textContent = format(parsedDate, "MMMM do, yyyy");
+  }
+  else{
+    dateDisplay.textContent = "";
+  }
+  todoRowHead.appendChild(dateDisplay);
+  
   let checkBox = document.createElement("div");
   todoRowHead.appendChild(checkBox);
   checkBox.className = "checkBox";
@@ -61,13 +79,13 @@ let todoDom = (todo, parentContainer) => {
   checkBox.addEventListener("click", () => {
     if (checkBox.innerHTML === "" || checkBox.innerHTML === "✖") {
       checkBox.innerHTML = "✔";
+      confetti();
       todo.isComplete = true;
     } else if (checkBox.innerHTML === "✔") {
       checkBox.innerHTML = "✖";
       todo.isComplete = false;
     }
   });
-
 
   arrow.addEventListener("click", () => {
     if (!todo.isDetailOpen) {
@@ -76,7 +94,7 @@ let todoDom = (todo, parentContainer) => {
         item.arrow = "▶";
       });
       todo.isDetailOpen = true;
-      todo.arrow = ">";
+      todo.arrow = "▼";
 
       serialDesigner(parentContainer);
     } else {
@@ -85,17 +103,17 @@ let todoDom = (todo, parentContainer) => {
       serialDesigner(parentContainer);
     }
   });
-  
+
   if (todo.isDetailOpen) {
-    arrow.innerHTML = ">";
-    todoRowBody.appendChild(todoListFunction());
+    arrow.innerHTML = "▼";
+    todoRowBody.appendChild(todoListFunction(todo));
     todoRowBody.classList.add("expanded");
   } else {
     arrow.innerHTML = "▶";
     todoRowBody.replaceChildren();
-    todoRowBody.classList.add("expanded");
+    todoRowBody.classList.remove("expanded");
   }
-
+  
   return todoRow;
 };
 
@@ -107,10 +125,16 @@ export const projectBox = () => {
   projectContainer.appendChild(projectHead);
   projectHead.className = "projectHead";
 
+  const visibleBodyBox = projectBodyBox();
+
   const projectBody = document.createElement("div");
   projectContainer.appendChild(projectBody);
-  projectBody.appendChild(projectBodyBox());
+  // projectBody.appendChild(projectBodyBox);
   projectBody.className = "projectBody";
+
+  if (visibleBodyBox instanceof HTMLElement) {
+    projectBody.appendChild(visibleBodyBox);
+  }
 
   const headText = document.createElement("div");
   projectHead.appendChild(headText);
@@ -118,8 +142,8 @@ export const projectBox = () => {
   headText.className = "headText";
 
   headText.addEventListener("click", () => {
-    const targetBodyHead = bodyBoxElement.querySelector(".bodyHead");
-    if(targetBodyHead){
+    const targetBodyHead = projectBody.querySelector(".bodyHead");
+    if (targetBodyHead) {
       serialDesigner(targetBodyHead);
     }
   });
@@ -144,7 +168,29 @@ const projectBodyBox = () => {
   header.className = "header";
   box.appendChild(header);
 
-  const butn = document.createElement("button");
+  const body = document.createElement("div");
+  body.className = "body";
+  box.appendChild(body);
+
+  const bodyHead = document.createElement("div");
+  bodyHead.className = "bodyHead";
+  body.appendChild(bodyHead);
+  Sortable.create(bodyHead, {
+    animation:150,
+
+    onEnd: function (evt) {
+      const movedItem = todoListLibrary.splice(evt.oldIndex, 1)[0];
+      todoListLibrary.splice(evt.newIndex, 0, movedItem);
+      
+      serialDesigner(bodyHead);
+    }
+  })
+
+  const bodyInfo = document.createElement("div");
+  bodyInfo.className = "bodyInfo";
+  body.appendChild(bodyInfo);
+
+   const butn = document.createElement("button");
   header.appendChild(butn);
   butn.className = "butn";
   butn.setAttribute("data-hover-text", "Add a Todo List");
@@ -160,17 +206,6 @@ const projectBodyBox = () => {
 
     serialDesigner(bodyHead);
   });
-  const body = document.createElement("div");
-  body.className = "body";
-  box.appendChild(body);
-
-  const bodyHead = document.createElement("div");
-  bodyHead.className = "bodyHead";
-  body.appendChild(bodyHead);
-
-  const bodyInfo = document.createElement("div");
-  bodyInfo.className = "bodyInfo";
-  body.appendChild(bodyInfo);
 
   serialDesigner(bodyHead);
 
