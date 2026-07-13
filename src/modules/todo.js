@@ -81,7 +81,7 @@ export let todoListFunction = (todo, todoListLibrary) => {
   pirorityBox.appendChild(pirorityHead);
   pirorityHead.className = "pirorityHead";
 
-  const pirorityInput = document.createElement("div");
+  const pirorityInput = document.createElement("select");
   pirorityBox.appendChild(pirorityInput);
   pirorityInput.className = "pirorityInput";
 
@@ -96,6 +96,7 @@ export let todoListFunction = (todo, todoListLibrary) => {
   descriptionInput.value = todo.todoDescription || "";
   descriptionInput.addEventListener('input', () => {
     todo.todoDescription = descriptionInput.value;
+    saveLibrary(todoListLibrary);
   })
 
   const noteHead = document.createElement("div");
@@ -109,6 +110,7 @@ export let todoListFunction = (todo, todoListLibrary) => {
   noteInput.value = todo.todoNote || "";
   noteInput.addEventListener('input', () => {
     todo.todoNote = noteInput.value;
+    saveLibrary(todoListLibrary);
   })
 
   const checklistHead = document.createElement("div");
@@ -122,6 +124,7 @@ export let todoListFunction = (todo, todoListLibrary) => {
   checklistInput.value = todo.todoChecklist || "";
   checklistInput.addEventListener('input', () => {
     todo.todoChecklist = checklistInput.value;
+    saveLibrary(todoListLibrary);
   })
 
   return todoContainer;
