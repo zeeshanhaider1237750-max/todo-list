@@ -1,14 +1,28 @@
 import "../pages/project_page/projectView.css";
 import { todoListFunction } from "../modules/todo.js";
-import  confetti  from "canvas-confetti";
-import  randomColor  from "randomcolor";
-import  Sortable  from "sortablejs";
+import confetti from "canvas-confetti";
+import randomColor from "randomcolor";
+import Sortable from "sortablejs";
 import { format } from "date-fns";
+import { loadLibrary, saveLibrary } from "./storage.js";
 
-let todoListLibrary = [];
+let todoListLibrary = loadLibrary();
 
-let todoFactory = (serialNo=[], arrow=[], name=[], id) => {
-  return { serialNo, arrow, name, id, isComplete: false, isDetailOpen: false, todoTitle: "", todoDueDate: "", todoDescription: "", todoNote:"", todoChecklist:"", color:randomColor()};
+let todoFactory = (serialNo = [], arrow = [], name = [], id) => {
+  return {
+    serialNo,
+    arrow,
+    name,
+    id,
+    isComplete: false,
+    isDetailOpen: false,
+    todoTitle: "",
+    todoDueDate: "",
+    todoDescription: "",
+    todoNote: "",
+    todoChecklist: "",
+    color: randomColor(),
+  };
 };
 
 let todoDom = (todo, parentContainer) => {
@@ -16,7 +30,7 @@ let todoDom = (todo, parentContainer) => {
   todoRow.className = "todoRow";
   todoRow.style.backgroundColor = todo.color;
 
-  let dateDisplay = document.createElement('div');
+  let dateDisplay = document.createElement("div");
   dateDisplay.className = "dateDisplay";
 
   let todoRowHead = document.createElement("div");
@@ -47,18 +61,18 @@ let todoDom = (todo, parentContainer) => {
 
   inputName.addEventListener("input", () => {
     todo.name = inputName.value;
+    saveLibrary(todoListLibrary);
   });
-  
-    if(todo.todoDueDate){
+
+  if (todo.todoDueDate) {
     let parsedDate = new Date(todo.todoDueDate);
 
     dateDisplay.textContent = format(parsedDate, "MMMM do, yyyy");
-  }
-  else{
+  } else {
     dateDisplay.textContent = "";
   }
   todoRowHead.appendChild(dateDisplay);
-  
+
   let checkBox = document.createElement("div");
   todoRowHead.appendChild(checkBox);
   checkBox.className = "checkBox";
@@ -73,6 +87,7 @@ let todoDom = (todo, parentContainer) => {
 
   removeButton.addEventListener("click", () => {
     todoListLibrary = todoListLibrary.filter((item) => item.id !== todo.id);
+    saveLibrary(todoListLibrary);
     serialDesigner(parentContainer);
   });
   checkBox.innerHTML = todo.isComplete ? "✔" : "";
@@ -81,9 +96,11 @@ let todoDom = (todo, parentContainer) => {
       checkBox.innerHTML = "✔";
       confetti();
       todo.isComplete = true;
+      saveLibrary(todoListLibrary);
     } else if (checkBox.innerHTML === "✔") {
       checkBox.innerHTML = "✖";
       todo.isComplete = false;
+      saveLibrary(todoListLibrary);
     }
   });
 
@@ -113,7 +130,7 @@ let todoDom = (todo, parentContainer) => {
     todoRowBody.replaceChildren();
     todoRowBody.classList.remove("expanded");
   }
-  
+
   return todoRow;
 };
 
@@ -176,21 +193,23 @@ const projectBodyBox = () => {
   bodyHead.className = "bodyHead";
   body.appendChild(bodyHead);
   Sortable.create(bodyHead, {
-    animation:150,
+    handle: '.serial, .arrow',
+    animation: 150,
 
     onEnd: function (evt) {
       const movedItem = todoListLibrary.splice(evt.oldIndex, 1)[0];
       todoListLibrary.splice(evt.newIndex, 0, movedItem);
-      
+      saveLibrary(todoListLibrary);
+
       serialDesigner(bodyHead);
-    }
-  })
+    },
+  });
 
   const bodyInfo = document.createElement("div");
   bodyInfo.className = "bodyInfo";
   body.appendChild(bodyInfo);
 
-   const butn = document.createElement("button");
+  const butn = document.createElement("button");
   header.appendChild(butn);
   butn.className = "butn";
   butn.setAttribute("data-hover-text", "Add a Todo List");
@@ -203,6 +222,7 @@ const projectBodyBox = () => {
 
     let newTodo = todoFactory(serialNumber, arrowIcon, "", newId);
     todoListLibrary.push(newTodo);
+    saveLibrary(todoListLibrary);
 
     serialDesigner(bodyHead);
   });

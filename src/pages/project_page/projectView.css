@@ -79,7 +79,7 @@
   transition: max-height 0.2s ease-in-out;
 }
 .todoRowBody.expanded{
-  max-height: 45vh;
+  max-height: 50vh;
 }
 .serial {
   padding: 0.6vh 0.6rem;
@@ -152,7 +152,7 @@
 .dateDisplay{
   font-size: 1rem;
   color: #555555;
-  margin-left: auto;
+  margin-left: 2rem;
   margin-right: 1.5rem;
   font-weight: bold;
 }

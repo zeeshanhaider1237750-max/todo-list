@@ -54,7 +54,7 @@ export let todoListFunction = (todo, todoListLibrary) => {
   titleInput.className = "titleInput";
   titleInput.setAttribute("placeholder", "Enter the title");
   titleInput.value = todo.todoTitle || "";
-  titleInput.addEventListener('input', () => {
+  titleInput.addEventListener("input", () => {
     todo.todoTitle = titleInput.value;
   });
 
@@ -71,19 +71,41 @@ export let todoListFunction = (todo, todoListLibrary) => {
 
   flatpickr(dueDateInput, {
     dateFormat: "F j, Y",
-    onChange: function(selectedDate, dateStr){
-        todo.todoDueDate = dateStr;
-        saveLibrary(todoListLibrary);
-    }
+    onChange: function (selectedDate, dateStr) {
+      todo.todoDueDate = dateStr;
+      saveLibrary(todoListLibrary);
+    },
   });
 
   const pirorityHead = document.createElement("div");
   pirorityBox.appendChild(pirorityHead);
   pirorityHead.className = "pirorityHead";
+  pirorityHead.textContent = "Pirority";
 
   const pirorityInput = document.createElement("select");
   pirorityBox.appendChild(pirorityInput);
   pirorityInput.className = "pirorityInput";
+  pirorityInput.setAttribute("placeholder", "Select  the Pirority Options, pls");
+  const priorities = [
+    "None",
+    "Lowest",
+    "Low",
+    "Medium",
+    "High",
+    "Highest",
+    "Maximum",
+  ];
+  priorities.forEach((level) => {
+    const option = document.createElement("option");
+    option.value = level;
+    option.textContent = level;
+    pirorityInput.appendChild(option);
+  });
+  pirorityInput.value = todo.todoPirority || "";
+  pirorityInput.addEventListener("input", () => {
+    todo.todoPirority = pirorityInput.value;
+    saveLibrary(todoListLibrary);
+  });
 
   const descriptionHead = document.createElement("div");
   descriptionBox.appendChild(descriptionHead);
@@ -94,10 +116,10 @@ export let todoListFunction = (todo, todoListLibrary) => {
   descriptionBox.appendChild(descriptionInput);
   descriptionInput.className = "descriptionInput";
   descriptionInput.value = todo.todoDescription || "";
-  descriptionInput.addEventListener('input', () => {
+  descriptionInput.addEventListener("input", () => {
     todo.todoDescription = descriptionInput.value;
     saveLibrary(todoListLibrary);
-  })
+  });
 
   const noteHead = document.createElement("div");
   noteBox.appendChild(noteHead);
@@ -108,10 +130,10 @@ export let todoListFunction = (todo, todoListLibrary) => {
   noteBox.appendChild(noteInput);
   noteInput.className = "noteInput";
   noteInput.value = todo.todoNote || "";
-  noteInput.addEventListener('input', () => {
+  noteInput.addEventListener("input", () => {
     todo.todoNote = noteInput.value;
     saveLibrary(todoListLibrary);
-  })
+  });
 
   const checklistHead = document.createElement("div");
   checklistBox.appendChild(checklistHead);
@@ -122,10 +144,10 @@ export let todoListFunction = (todo, todoListLibrary) => {
   checklistBox.appendChild(checklistInput);
   checklistInput.className = "checklistInput";
   checklistInput.value = todo.todoChecklist || "";
-  checklistInput.addEventListener('input', () => {
+  checklistInput.addEventListener("input", () => {
     todo.todoChecklist = checklistInput.value;
     saveLibrary(todoListLibrary);
-  })
+  });
 
   return todoContainer;
 };
